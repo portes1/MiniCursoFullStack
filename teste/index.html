@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Um titulo muito bom</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script >
+  $(document).ready(function(){
+    $("#btnlogar").click(function(){
+        $.ajax({
+          url: "login.php",
+          type: "GET",
+          data: {
+              login: $("#txtLogin").val(),
+              senha: $("#txtSenha").val()
+
+          },
+          success: function(resultado){
+            var obj = JSON.parse(resultado);
+            if(obj.id == "-1"){
+              alert(obj.mensagem);
+            }else{
+              window.location.assign("teste.php");
+          }
+          console.log(obj.id);
+          }
+        });
+    });
+  });
+</script>
+
+
+    <style media="screen">
+      body{
+        background-image:url("manga.jpg");
+        background-size: 100%;
+        background-color:#F5DEB3;
+      }
+    </style>
+<!--
+    <script>
+    $(document).ready(function()){
+    console.log("init chamado");
+    $("#btnlogar").click(function()){
+        alert("oi");
+    });
+});
+    </script>
+  -->
+  </head>
+  <body>
+<div class="jumbotron text-center">
+  <h1 class="titulo">Cabeçalho muito bom</h1>
+
+  <p>Esse texto é muito bom</p>
+</div>
+
+
+<div class="container">
+      <div class="row">
+          <div class="col-md-4">
+
+          </div>
+          <div class="col-md-4 painel">
+                <div class="form-group">
+
+                          <label for="login">Login:</label><input id="txtLogin" class="form-control" id="login" type="text" name="login" placeholder="usuario"><br>
+                            <label for="senha">Senha:</label><input id="txtSenha" class="form-control" id="senha" type="password" name="senha" placeholder="senha"><br><br>
+
+                            <button id="btnlogar" type="button" name="login" class="btn-dark"> Login</button>
+                            <a href="cadastro.html">
+                            <button type="button" name="Cadastro" class="btn-dark"> Cadastro </button>
+                            </a>
+                            <a href="butistrep.html">
+                            <button type="button" name="testezinho" class="btn-dark"> bootstrap </button>
+                            </a>
+                </div>
+          </div>
+          <div class="col-md-4">
+
+          </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

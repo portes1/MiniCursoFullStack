@@ -1,0 +1,23 @@
+<style media="screen">
+    body{
+      background-image:url("../manga.jpg");
+      background-size: 100%;
+      background-color:#F5DEB3;
+    }
+    .titulo{
+      background-color:#2F4F4F;
+      color: #FFF8DC;
+    }
+    #login{
+      background-color:#D8BFD8;
+    }
+    #senha{
+      color: white;
+      background-color:#D8BFD8;
+    }
+    .painel{
+      border: 1px solid black;
+      background-image: url("../painel.jpg");
+      padding: 10px;
+    }
+</style>

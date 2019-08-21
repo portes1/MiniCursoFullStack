@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script >
+  $(document).ready(function(){
+    $("#btncadastrar").click(function(){
+        $.ajax({
+          url: "pagina.php",
+          type: "GET",
+          data: {
+            nome:$("#txtNome").val(),
+            email:$("#txtEmail").val(),
+            login:$("#txtLogin").val(),
+            senha:$("#txtSenha").val()
+          },
+          success:function(resultado){
+            alert(resultado);
+            //$("#saida").html("<h1>"+ resultado + "</h1>");
+            $("#txtNome").val("");
+            $("#txtEmail").val("");
+            $("#txtLogin").val("");
+            $("#txtSenha").val("");
+          }
+        });
+    })
+  });
+</script>
+    <style media="screen">
+        body{
+          background-image:url("tucunare.jpg");
+          background-color:#F0F8FF;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+          <div class="row">
+              <div class="col-4">
+
+              </div>
+              <div class="col-4">
+                <div class="painel">
+                  <h1>Cadastro</h1>
+                Nome: <input class="form-control" id="txtNome" type="text" name="nome" placeholder="Insira seu nome"><br>
+                Email: <input class="form-control" id="txtEmail" type="text" name="email" placeholder="Insira seu Email"><br>
+                Login: <input class="form-control" id="txtLogin" type="text" name="login" placeholder="Insira seu nome de usuario"><br>
+                Senha: <input class="form-control" id="txtSenha" type="password" name="senha" placeholder="Insira sua senha"><br>
+              <!--  <a href="javascript:history.go(0)"> -->
+                <center><button id="btncadastrar" type="button" name="realizar"> Confirmar<br>cadastro</button> </center>
+
+                </div>
+              </div>
+              <div class="col-4">
+
+              </div>
+        </div>
+    </div>
+    <div id="saida">
+
+    </div>
+
+  </body>
+</html>
